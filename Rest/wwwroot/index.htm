@@ -1,0 +1,25 @@
+﻿<html>
+    <head>
+            <script src="/lib/babel-standalone/babel.min.js"></script>        
+            <script data-main="/scripts/main" src='/lib/requirejs/require.js'></script>
+    </head>
+    <body>        
+        <div data-bind="visible: false">Page loading...</div>
+
+        <div style="display:none" data-bind="visible: true">
+
+        <ul data-bind="foreach: elements">
+            <li>
+                <div style="cursor: pointer" data-bind="text: title, click: $parent.load"></div>
+            </li>
+        </ul>
+
+        <div data-bind="if: hasInfo">
+            <span style="font-weight: bold">Additional info:</span>
+            <div data-bind="text: info"></div>            
+        </div>
+
+        </div>
+
+    </body>
+</html>
