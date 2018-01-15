@@ -8,15 +8,22 @@
 
         <div style="display:none" data-bind="visible: true">
 
+        <div>
+            Enter id: <input type="text" data-bind="value:selectedId" />
+            <input type="button" data-bind="click: loadById" />
+        </div>
+
         <ul data-bind="foreach: elements">
             <li>
-                <div style="cursor: pointer" data-bind="text: title, click: $parent.load"></div>
+                <div style="cursor: pointer" data-bind="text: title, click: function() {$parent.load($rawData);}"></div>
+                <input type="button" value="Update" data-bind="click: function() { $parent.update($rawData);}"
             </li>
         </ul>
 
         <div data-bind="if: hasInfo">
             <span style="font-weight: bold">Additional info:</span>
             <div data-bind="text: info"></div>            
+            <input type="button" value="Update" data-bind="click:update"/>
         </div>
 
         </div>
